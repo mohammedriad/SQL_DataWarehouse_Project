@@ -1,0 +1,36 @@
+# Initializes the DataWarehouse database and creates the three-layer
+# medallion architecture schemas: bronze (raw), silver (cleaned),
+# and gold (business-ready).
+
+
+
+USE master;
+GO
+
+# ============================================================================
+# SECTION 1: DATABASE CREATION
+# ============================================================================
+
+# Create the DataWarehouse database
+CREATE DATABASE DataWarehouse;
+GO
+
+# Switch context to the new database
+USE DataWarehouse;
+GO
+
+# ============================================================================
+# SECTION 2: SCHEMA CREATION (Medallion Architecture)
+# ============================================================================
+
+# Bronze layer: Raw, unprocessed data landed from source systems
+CREATE SCHEMA bronze;
+GO
+
+# Silver layer: Cleaned, validated, and normalized data
+CREATE SCHEMA silver;
+GO
+
+# Gold layer: Aggregated, business-ready data for analytics & reporting
+CREATE SCHEMA gold;
+GO
